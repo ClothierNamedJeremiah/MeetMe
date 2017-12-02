@@ -33,27 +33,24 @@ def init_db(unique_meeting_id,meeting_duration,daterange_start,daterange_stop,ti
 	@return  	None, creates a database that will be later updated with users busy times
 
 	"""
-	print("=============================")
-	print("Arguments Recieved in init_db")
-	print("Unique meeting id: ", unique_meeting_id)
-	print("Meeting Duration: ", meeting_duration)
-	print("Daterange Start: ", daterange_start)
-	print("Daterange Stop: ", daterange_stop)
-	print("Timerange Start: ", timerange_start)
-	print("Timerange Stop: ", timerange_stop)
-	print("Host Email: ", host_email)
-	print("Host Busy Times: ", host_busy_times)
-	print("Guest List: ", guest_list)
-	print("=============================")
+	# print("=============================")
+	# print("Arguments Recieved in init_db")
+	# print("Unique meeting id: ", unique_meeting_id)
+	# print("Meeting Duration: ", meeting_duration)
+	# print("Daterange Start: ", daterange_start)
+	# print("Daterange Stop: ", daterange_stop)
+	# print("Timerange Start: ", timerange_start)
+	# print("Timerange Stop: ", timerange_stop)
+	# print("Host Email: ", host_email)
+	# print("Host Busy Times: ", host_busy_times)
+	# print("Guest List: ", guest_list)
+	# print("=============================")
 
 	try: 
 		dbclient = MongoClient(MONGO_CLIENT_URL)
 		db = getattr(dbclient, CONFIG.DB)
-		print("Got database")
 		collection = db.dated
-		print("Using sample collection")
 	except Exception as err:
-		print("Failed")
 		print(err)
 		sys.exit(1)
 
@@ -82,7 +79,6 @@ def update_user(meeting_id, user_email, responded, busy_times):
 		db = getattr(dbclient, CONFIG.DB)
 		collection = db.dated
 	except Exception as err:
-		print("Failed")
 		print(err)
 		sys.exit(1)
 	user = collection.find({"user_email":user_email})
@@ -134,11 +130,8 @@ def get_not_responded(meeting_id):
 	try: 
 		dbclient = MongoClient(MONGO_CLIENT_URL)
 		db = getattr(dbclient, CONFIG.DB)
-		print("Got database")
 		collection = db.dated
-		print("Using sample collection")
 	except Exception as err:
-		print("Failed")
 		print(err)
 		sys.exit(1)
 
@@ -167,7 +160,6 @@ def get_meetings_datetimerange(meeting_id):
 		db = getattr(dbclient, CONFIG.DB)
 		collection = db.dated
 	except Exception as err:
-		print("Failed")
 		print(err)
 		sys.exit(1)
 	

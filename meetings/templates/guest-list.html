@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="en"> <head>
+<title>Meet Me</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+   ul { height: 100px; overflow: auto; width: 25%; border: 1px solid #000; }
+   ul { list-style-type: none; margin: 0; padding: 0; overflow-x: hidden; }
+   li { margin: 0; padding: 0; }
+   label { display: block; color: WindowText; background-color: Window; margin: 0; padding: 0; width: 100%; }
+   label:hover { background-color: Highlight; color: HighlightText; }
+</style>
+</head>
+
+	<h3>Enter a Recipient's Email</h3>
+	<form action="/guest_list">
+	  <input type="email" name="usremail"></input>
+	  <input type="submit" value="Add Email" formmethod="post">
+	</form>
+
+	<form method=POST action="{{ url_for('delete')}}">
+	  <ul>
+	  	{% for recp in g.guest_list %}
+	    	<li><input type="checkbox" name="chk{{ loop.index }}" id="chk{{ loop.index }}" value="{{ recp }}">{{ recp }}</li>
+	    {% endfor %}
+	  </ul>
+	  <br>
+	  <input type ="submit" value="Delete Selected" style="float:left;margin-right:5%">
+	</form>
+	<br><p>
+	When you have finished building your list of recipients
+	<a href="mailto:{{ g.recipients }}?Subject=Meet%20Me&body=Hello Everyone,%0A%0AI am trying to schedule a meeting that everyone would be able to attend.%0A%0APlease copy and paste the link below into your browser and select the Google Calendars which you'd like me to consider as I look for an open time for our meeting.%0A%0AHere's your MeetMe invite: {{g.invite_link}}%0A%0AThanks!%0A%0AINSERT NAME HERE" target="_top">Click here to send an email</a>
+	</p>
+	<p>After you have sent an email out to everyone please click the <strong>Done</strong> button below
+	</p>
+	<form method=POST action="{{ url_for('emailed') }}">
+		<input type="submit" value="Done">
+	</form>
+</html>

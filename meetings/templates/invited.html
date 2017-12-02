@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meet Me</title>
+	<style>
+	body {
+	padding-top: 80px;
+	text-align: center;
+	font-family: monaco, monospace;
+	background-size: cover;
+	}
+	h1, h2 {
+	  display: inline-block;
+	  background: #fff;
+	}
+	h1 {
+	  font-size: 30px
+	}
+	h2 {
+	  font-size: 20px;
+	}
+	span {
+	  background: #fd0;
+	}
+  p.calendar_title {
+    display: inline-block;
+  }
+	</style>
+</head>
+<body>
+<h1>Enter your email address</h1><br>
+<form method=POST action="{{ url_for("invite",meeting_id= g.meeting_id ) }}">
+	<input type="email" name="usremail"></input>
+	<input type="submit" value="Set Submit">
+</form>
+</body>
+<p><strong>Note: </strong><em>The email address entered must be the<br> same email address which recieved the invite</em></p>
+{% if g.calendars is defined  %}
+  <form>
+  {% for cal in g.calendars if cal.selected %}
+    <div class="row">
+      <input type="checkbox" value = "{{cal.summary}}" name="check{{loop.index}}">
+      <p class="calendar_title" name="calendar_title">{{cal.summary}}</p>
+    </div>
+  {% endfor %}
+  <button type = "submit" formmethod="post" formaction="{{ url_for("invite_submission",meeting_id= g.meeting_id ) }}">Select Calendar(s)</button>
+  </form>
+{% endif %}
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="en"> <head>
+<title>Meet Me</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+   ul { height: 100px; overflow: auto; width: 25%; border: 1px solid #000; }
+   ul { list-style-type: none; margin: 0; padding: 0; overflow-x: hidden; }
+   li { margin: 0; padding: 0; }
+   label { display: block; color: WindowText; background-color: Window; margin: 0; padding: 0; width: 100%; }
+   label:hover { background-color: Highlight; color: HighlightText; }
+</style>
+</head>
+
+<body>
+	<h3>Meeting Duration</h3>
+	<form method=POST action="{{ url_for('setduration')}}">
+	  <select name="ts">
+	    <option value=15>15 minutes</option>
+	    <option value=30>30 minutes</option>
+	    <option value=30>45 minutes</option>
+	    <option value=60>1 hour</option>
+	    <option value=90>1 ½ hours</option>
+	    <option value=120>2 hours</option>
+	    <option value=150>2 ½ hours</option>
+	    <option value=180>3 hours</option>
+	    <option value=210>3 ½ hours</option>
+	    <option value=240>4 hours</option>
+	    <option value=270>4 ½ hours</option>
+	    <option value=300>5 Hours</option>
+	  </select>
+		</br></br>
+		<h3> Enter your primary email address </h3>
+		<input type="email" name="host_email"></input>
+		</br>
+		<input type="submit" value="Set Duration & Email Address">
+	</form>
+
+</body>
+</html>

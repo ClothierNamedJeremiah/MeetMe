@@ -1,0 +1,30 @@
+<style>
+  body {
+  padding-top: 80px;
+  text-align: center;
+  font-family: monaco, monospace;
+
+  background-size: cover;
+}
+h1, h2 {
+  display: inline-block;
+  background: #fff;
+}
+h1 {
+  font-size: 30px
+}
+h2 {
+  font-size: 20px;
+}
+span {
+  background: #fd0;
+}
+ul {
+  text-align:left;
+}
+</style>
+<h1>People who have not yet Responded</h1><br>
+{% for recp in g.guest_list %}
+  <p>{{ recp }}</p>
+{% endfor %}
+<h2>FREE TIMES NOT YET IMPLEMENTED</h2>

@@ -1,0 +1,19 @@
+==========In manage_db.py===========
+1. List the emails of those who have not yet responded
+	- pass that information to html page /status/ASDFAVX
+
+
+3. Figure out how to consolidate multiple busy_times
+
+
+4. The busy times should already be trimmed, so we just calculate the
+free time using the consolidated/ "group_busy_times"
+
+5. Once we have "group_busy_times" then we can send that to the webpage
+status/ASDFASDF and display the times
+
+
+1. When status/meeting_id is accessed
+	- use manage_db.py to do the following:
+		- build a list of those who haven't responded
+		- create a list of busy times for everyone

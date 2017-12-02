@@ -35,7 +35,7 @@ This is essentially “a better Doodle”, providing a better user experience in
  5. on the ```/guest_list``` webpage you can add email addresses, delete email addresses and send a *template* email to everyone on the email list
     * Note: the *invite link* will be is part of the email, to gain access of the invitees perspective you must copy and paste that link into you approriate browser (a new icognito tab works best to "simulate" a new user)
     * Once you have saved the *invite link* and emailed the recipeint's you may click the Done Button
-      * Aside: the MongoDB is not created until the *Done* button has been selected, therefore it is best to now proceed with any steps on the ```invite/``` link until you have clicked the aforementioned button
+      * Aside: the MongoDB is not created until the *Done* button has been selected, therefore it is best to not proceed with any steps on the ```invite/``` link until you have clicked the aforementioned button
 #### The Application now "splits" into two paths, the Host's Page and the Invitee's Page 
 1. On the Host's webpage *(link displayed on the webpage ```emailed/```)* you will be able to see who has not yet responded and a list of timeslots for potential meetings 
 2. On the Invitee's webpage *(link copied from the mailto: email template in step 5)* a user will enter in their email address and then select from a list of personal 

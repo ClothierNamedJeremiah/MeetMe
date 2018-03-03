@@ -1,4 +1,4 @@
-# MeetMe
+# Meet Me
 
 Displays free and busy appointment times from a selected date range of a user's Google calendar
 
